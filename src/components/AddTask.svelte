@@ -17,7 +17,7 @@ const toggleDone = (index) => {
     console.log(taskList);
 }
 </script>
-
+<div class="heading">Made with svelte with 💓</div>
 <div class="input">
 <input bind:value={task}/><button on:click={addTask}>🏓</button>
 {#if taskList.length === 0 }
@@ -33,9 +33,17 @@ const toggleDone = (index) => {
 </div>
 
 <style>
+.heading{
+    font-size: 42px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10vh;
+    color: orange
+}
 .no-task{
     text-align: center;
-    font-size: 34px;
+    font-size: 30px;
     font-weight: 500;
     text-transform: capitalize;
 }
