@@ -1,13 +1,10 @@
 
 <script>
-	import Count from './components/Count.svelte';
-	export let name;
+	import AddTask from './components/AddTask.svelte';
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	<Count/>
+	<AddTask/>
 </main>
 
 <style>
