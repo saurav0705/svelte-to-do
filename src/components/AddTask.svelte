@@ -56,7 +56,9 @@ const toggleDone = (index) => {
     background-color: lightblue;
     margin-top: 2px;
     padding: 10px; 
+    font-size: 20px;
 }
+
 .delete{
     cursor: pointer;
 }
