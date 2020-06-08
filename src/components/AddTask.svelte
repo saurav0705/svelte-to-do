@@ -1,38 +1,48 @@
 <script>
 import { fade,fly } from 'svelte/transition';
-let task = "";
+import List from './List.svelte';
+let task;
 let taskList = [];
+let taskDone = [];
 const addTask = () => {
     taskList = [...taskList,{task:task,done:false}];
     task=""
 }
-const removeTask = (ind) => {
-    taskList = [...taskList.filter((task,index) => index!==ind )]
-    
-}
-const toggleDone = (index) => {
-    let obj = taskList;
+const removeTaskList = (ind) =>   taskList = [...taskList.filter((task,index) => index!==ind )]
+
+const removeTaskDone = (ind) =>   taskDone = [...taskDone.filter((task,index) => index!==ind )]
+
+const toggleDoneTrue = (index) => {
+    let obj = [...taskList];
     obj[index].done = !obj[index].done;
-    taskList = [...obj];
-    console.log(taskList);
+    taskDone = [...taskDone,obj[index]];
+    removeTaskList(index);
 }
+const toggleDoneFalse = (index) => {
+    let obj = [...taskDone];
+    obj[index].done = !obj[index].done;
+    taskList = [...taskList,obj[index]];
+    removeTaskDone(index);
+}
+
 </script>
 <div class="heading">Made with svelte with 💓</div>
 <div class="input">
 <input bind:value={task}/><button on:click={addTask}>🏓</button>
-{#if taskList.length === 0 }
+{#if taskList.length===0 && taskDone.length===0}
 <div class="no-task" transition:fade>Add some task you lazy dummy</div>
 {/if}
-
-{#each taskList as item,index}
-    <div class="task" in:fly="{{ y: 200, duration: 2000 }}" out:fade>
-    <div class={item.done ? "task-item strike":"task-item"}>{item.task}</div>
-    <div class="delete"><span on:click={() => toggleDone(index)}>🆗</span><span  on:click={() => removeTask(index)}>❎</span></div>
-    </div>
-{/each}
+<div class="task-view">
+<List heading="Todo" list={taskList} removeTask={removeTaskList} toggleDone={toggleDoneTrue}/>
+<List heading="DONE" list={taskDone} removeTask={removeTaskDone} toggleDone={toggleDoneFalse}/>
+</div>
 </div>
 
 <style>
+.task-view{
+    display: flex;
+    justify-content: center;
+}
 .heading{
     font-size: 42px;
     text-transform: uppercase;
@@ -47,23 +57,6 @@ const toggleDone = (index) => {
     font-weight: 500;
     text-transform: capitalize;
 }
-.task{
-    display: flex;
-    justify-content: space-between;
-    max-width: 600px;
-    width: auto;
-    margin: auto;
-    background-color: lightblue;
-    margin-top: 2px;
-    padding: 10px; 
-    font-size: 20px;
-}
 
-.delete{
-    cursor: pointer;
-}
-.strike{
-    text-decoration: line-through;
-}
 
 </style>
