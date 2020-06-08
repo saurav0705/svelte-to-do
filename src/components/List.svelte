@@ -53,6 +53,7 @@ export let toggleDone;
 }
 .strike{
     text-decoration: line-through;
+    color: white;
 }
 .done{
     background-color: lightcoral;
