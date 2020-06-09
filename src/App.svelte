@@ -1,10 +1,16 @@
 
 <script>
+	import { Router, Link, Route } from "svelte-routing";
 	import AddTask from './components/AddTask.svelte';
+	import Count from './components/Count.svelte';
+	export let url = "";
 </script>
 
 <main>
-	<AddTask/>
+<Router url="{url}">
+	<Route path="/" component="{AddTask}" />
+    <Route path="/count" component="{Count}" />
+</Router>
 </main>
 
 <style>
