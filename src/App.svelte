@@ -3,22 +3,23 @@
 	import { Router, Link, Route } from "svelte-routing";
 	import AddTask from './components/AddTask.svelte';
 	import Count from './components/Count.svelte';
+	import Navbar from './components/Navbar.svelte';
 	export let url = "";
 </script>
 
 <main>
 <Router url="{url}">
+	<Navbar/>
 	<Route path="/" component="{AddTask}" />
     <Route path="/count" component="{Count}" />
 </Router>
 </main>
 
 <style>
+
 	main {
 		text-align: center;
-		padding: 1em;
 		max-width: 240px;
-		margin: 0 auto;
 	}
 
 	h1 {

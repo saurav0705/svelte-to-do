@@ -1,0 +1,35 @@
+<script>
+import {Link} from "svelte-routing";
+</script>
+
+
+<div class="navbar">
+<div class="item">Home</div>
+<div class="item">Count</div>
+<div class="item">TODO</div>
+<div class="item">Opacity</div>
+</div>
+
+<style type="text/scss">
+    .navbar{
+        display: flex;
+        // justify-content: space-between;
+        background-color: lightcoral;
+        margin: 0;
+        padding: 0;
+        .item{
+        padding: 2vh;
+        font-weight: 500;
+        text-transform: uppercase;
+        color:white;
+        cursor: pointer;
+        transition-duration: 200ms;
+        border-bottom: 2px solid lightcoral;
+        &:hover{
+            background-color: white;
+            color: lightcoral;
+        }
+        }
+    }
+    
+</style>
