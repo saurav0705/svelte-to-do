@@ -1,13 +1,16 @@
 <script>
 import {Link} from "svelte-routing";
+import { navigate } from "svelte-routing";
+
+const goToRoute = (url) => navigate(url);
 </script>
 
 
 <div class="navbar">
-<div class="item">Home</div>
-<div class="item">Count</div>
-<div class="item">TODO</div>
-<div class="item">Opacity</div>
+<div class="item" on:click={() => goToRoute('/')}>Home</div>
+<div class="item" on:click={() => goToRoute('/count')}>Count</div>
+<div class="item" on:click={() => goToRoute('/todo')}>TODO</div>
+<div class="item" on:click={() => goToRoute('/opacity')}>Opacity</div>
 </div>
 
 <style type="text/scss">
