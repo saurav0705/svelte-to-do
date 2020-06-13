@@ -21,7 +21,7 @@
 
 	main {
 		text-align: center;
-		max-width: 240px;
+		
 	}
 
 	h1 {

@@ -16,6 +16,7 @@ const goToRoute = (url) => navigate(url);
 <style type="text/scss">
     .navbar{
         display: flex;
+        overflow: hidden;
         // justify-content: space-between;
         background-color: lightcoral;
         margin: 0;
@@ -33,6 +34,13 @@ const goToRoute = (url) => navigate(url);
             background-color: white;
             color: lightcoral;
         }
+        }
+    }
+
+    @media screen and (max-width:600px){
+        .navbar{
+            display: block;
+            // height: 70px;
         }
     }
     
