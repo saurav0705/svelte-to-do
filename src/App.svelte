@@ -4,14 +4,16 @@
 	import AddTask from './components/AddTask.svelte';
 	import Count from './components/Count.svelte';
 	import Navbar from './components/Navbar.svelte';
+	import Opacity from './components/Opacity.svelte';
 	export let url = "";
 </script>
 
 <main>
 <Router url="{url}">
 	<Navbar/>
-	<Route path="/" component="{AddTask}" />
+	<Route path="/todo" component="{AddTask}" />
     <Route path="/count" component="{Count}" />
+	<Route path="/opacity" component="{Opacity}" />
 </Router>
 </main>
 

@@ -30,7 +30,7 @@ const toggleDoneFalse = (index) => {
 <div class="input">
 <input bind:value={task}/><button on:click={addTask}>🏓</button>
 {#if taskList.length===0 && taskDone.length===0}
-<div class="no-task" transition:fade>Add some task you lazy dummy</div>
+<div class="no-task" transition:fade|local>Add some task you lazy dummy</div>
 {/if}
 <div class="task-view">
 <List heading="Todo" list={taskList} removeTask={removeTaskList} toggleDone={toggleDoneTrue}/>

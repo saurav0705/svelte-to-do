@@ -10,7 +10,7 @@ export let toggleDone;
 {#if list.length!==0}
 <div class="heading">{heading}</div>
 {#each list as item,index}
-    <div class={item.done ? "task done":"task"} in:fly="{{ y: 200, duration: 2000 }}" out:fade>
+    <div class={item.done ? "task done":"task"} in:fly="{{ y: 200, duration: 2000 }}" out:fade|local>
     <div class={item.done ? "task-item strike":"task-item"}>{item.task}</div>
     <div class="delete"><span class="done-btn" on:click={() => toggleDone(index)}>{item.done ? "undone":"done"}</span><span  on:click={() => removeTask(index)}>❎</span></div>
     </div>
