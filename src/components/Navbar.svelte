@@ -3,10 +3,13 @@ import {Link} from "svelte-routing";
 import { navigate } from "svelte-routing";
 
 const goToRoute = (url) => navigate(url);
+let extended = false;
+let toggleNavbar = () => extended = !extended
 </script>
 
 
-<div class="navbar">
+<div class={!extended ? "navbar compress":"navbar"}>
+<div class="item alternate" on:click={() => toggleNavbar()}>🍔 Svelte</div>
 <div class="item" on:click={() => goToRoute('/')}>Home</div>
 <div class="item" on:click={() => goToRoute('/count')}>Count</div>
 <div class="item" on:click={() => goToRoute('/todo')}>TODO</div>
@@ -14,14 +17,22 @@ const goToRoute = (url) => navigate(url);
 </div>
 
 <style type="text/scss">
+    .compress{
+                height: 84px;
+            }
     .navbar{
         display: flex;
-        overflow: hidden;
-        // justify-content: space-between;
         background-color: lightcoral;
         margin: 0;
         padding: 0;
+        transition-duration: 300ms;
+        
+        .alternate{
+            display: none;
+            text-transform: uppercase;
+        }
         .item{
+        text-align: left;
         padding: 2vh;
         font-weight: 500;
         text-transform: uppercase;
@@ -40,7 +51,16 @@ const goToRoute = (url) => navigate(url);
     @media screen and (max-width:600px){
         .navbar{
             display: block;
-            // height: 70px;
+            overflow: hidden;
+            .alternate{
+                display: block;
+            }
+            .item{
+                &:hover{
+                    background-color: lightcoral;
+                    color: white;
+                }
+            }
         }
     }
     
