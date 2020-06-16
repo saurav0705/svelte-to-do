@@ -8,17 +8,17 @@ let toggleNavbar = () => extended = !extended
 </script>
 
 
-<div class={!extended ? "navbar compress":"navbar"}>
-<div class="item alternate" on:click={() => toggleNavbar()}>🍔 Svelte</div>
-<div class="item" on:click={() => goToRoute('/')}>Home</div>
-<div class="item" on:click={() => goToRoute('/count')}>Count</div>
-<div class="item" on:click={() => goToRoute('/todo')}>TODO</div>
-<div class="item" on:click={() => goToRoute('/opacity')}>Opacity</div>
+<div class={!extended ? "navbar compress":"navbar"} on:click={() => toggleNavbar()}>
+<div class="item alternate" >🍔 Svelte</div>
+<div class="item" on:click={() => goToRoute('/')}>🍕Home</div>
+<div class="item" on:click={() => goToRoute('/count')}>🍕Count</div>
+<div class="item" on:click={() => goToRoute('/todo')}>🍕TODO</div>
+<div class="item" on:click={() => goToRoute('/opacity')}>🍕Opacity</div>
 </div>
 
 <style type="text/scss">
     .compress{
-                height: 84px;
+                height: 60px;
             }
     .navbar{
         display: flex;
