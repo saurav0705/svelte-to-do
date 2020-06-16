@@ -9,7 +9,7 @@ let toggleNavbar = () => extended = !extended
 
 
 <div class={!extended ? "navbar compress":"navbar"} on:click={() => toggleNavbar()}>
-<div class="item alternate" >🍔 Svelte 🍔</div>
+<div class="item alternate" >🍔 Svelte 🍔🍕🍕</div>
 <div class="item" on:click={() => goToRoute('/')}>🍕Home</div>
 <div class="item" on:click={() => goToRoute('/count')}>🍕Count</div>
 <div class="item" on:click={() => goToRoute('/todo')}>🍕TODO</div>
